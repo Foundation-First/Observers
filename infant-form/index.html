@@ -39,7 +39,7 @@ a{color:var(--blue-dark)}
 .toolbar-nav{display:flex;gap:.25rem 1.1rem;overflow-x:auto;white-space:nowrap;padding-block:.15rem .55rem;font-size:.95rem;scrollbar-width:thin}
 .toolbar-nav a{padding:.2rem 0;text-decoration:none;border-bottom:2px solid transparent}
 .toolbar-nav a:hover{border-bottom-color:var(--blue)}
-.btn{font:inherit;font-weight:600;padding:.55rem 1.05rem;border-radius:4px;border:2px solid var(--blue);cursor:pointer;line-height:1.2}
+.btn{font:inherit;font-weight:600;padding:.55rem 1.05rem;border-radius:4px;border:2px solid var(--blue);cursor:pointer;line-height:1.2;display:inline-block;text-align:center;text-decoration:none}
 .btn.primary{background:var(--blue);color:#fff}
 .btn.primary:hover{background:var(--blue-dark);border-color:var(--blue-dark)}
 .btn.secondary{background:#fff;color:var(--blue-dark)}
@@ -273,6 +273,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <div class="toolbar-top">
     <div class="toolbar-id"><strong>Infant feedback form</strong><span id="save-status" role="status" aria-live="polite">Your draft saves on this device as you type.</span></div>
     <div class="toolbar-actions">
+      <a href="../index.html" class="btn secondary" id="back-btn">&larr; All forms</a>
       <button type="button" class="btn secondary" id="clear-btn">Clear form</button>
       <button type="button" class="btn primary" id="print-btn">Save as PDF</button>
     </div>
@@ -455,6 +456,14 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
 </article>
 </main>
 
+<dialog id="back-dialog" aria-labelledby="back-h">
+  <p id="back-h"><strong>Go back to the home page?</strong><br><span id="back-msg">Your draft stays saved on this device and will come back when you reopen this form. If you need a copy to share, choose Save as PDF before you go.</span></p>
+  <div class="row">
+    <button type="button" class="btn secondary" id="back-cancel">Keep editing</button>
+    <button type="button" class="btn primary" id="back-confirm">Go to home page</button>
+  </div>
+</dialog>
+
 <dialog id="clear-dialog" aria-labelledby="clear-h">
   <p id="clear-h"><strong>Clear everything you’ve typed?</strong><br>This also removes the draft saved on this device. You can’t undo it.</p>
   <div class="row">
@@ -566,6 +575,23 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   if(dlg){
     document.getElementById('clear-cancel').addEventListener('click',function(){dlg.close();clearBtn.focus();});
     document.getElementById('clear-confirm').addEventListener('click',function(){dlg.close();doClear();});
+  }
+
+  /* ---- back to home page ---- */
+  var backDlg=document.getElementById('back-dialog');
+  var backBtn=document.getElementById('back-btn');
+  function leave(){clearTimeout(timer);save();location.href=backBtn.href;}
+  backBtn.addEventListener('click',function(e){
+    e.preventDefault();
+    var msg=storageOK?document.getElementById('back-msg').textContent
+      :'This browser isn’t saving drafts, so anything you’ve typed will be lost. Choose Save as PDF first if you need it.';
+    if(!storageOK)document.getElementById('back-msg').textContent=msg;
+    if(backDlg&&typeof backDlg.showModal==='function')backDlg.showModal();
+    else if(window.confirm('Go back to the home page? '+msg))leave();
+  });
+  if(backDlg){
+    document.getElementById('back-cancel').addEventListener('click',function(){backDlg.close();backBtn.focus();});
+    document.getElementById('back-confirm').addEventListener('click',leave);
   }
 
   /* ---- save as PDF (the browser's print window) ---- */
