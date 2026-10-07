@@ -14,6 +14,7 @@
   --field:#edf4fa; --field-line:#7fa3bb; --danger:#a12622;
   --green:#99cb3b; --orange:#f99939;
   --dom-gray:#d0cece; --col-blue:#6ebcff; --alt:#f2f2f2; --run-blue:#2f6fa8;
+  --age:#ffcc66; --age-dark:#996600;
   --side:26%;
   --font:Calibri,Carlito,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
@@ -106,7 +107,7 @@ table.frame{width:100%}
 .runhead{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:1rem;margin-bottom:.6rem}
 .runhead .ff{width:min(11rem,100%);height:auto}
 .runhead .rr{width:4.2rem;height:auto;justify-self:end}
-.runtitle{margin:0;text-align:center;font-weight:700;color:var(--run-blue);font-size:1rem}
+.runtitle{margin:0;text-align:center;font-weight:700;color:var(--age-dark);font-size:1rem}
 .info{margin:.3rem 0 .8rem;display:grid;gap:.45rem}
 .info-row{display:grid;gap:.45rem 1.5rem}
 .info-row.r3{grid-template-columns:repeat(3,1fr)}
@@ -115,7 +116,7 @@ table.frame{width:100%}
 .chk-label{margin-right:.4rem}
 .domain-sec{border:1px solid #000;margin:0 0 .9rem;background:#fff}
 .dom-title{margin:0;text-align:center;background:var(--dom-gray);font-size:1.05em;font-weight:400;font-variant:small-caps;letter-spacing:.03em;padding:.12rem .5rem;border-bottom:1px solid #000;line-height:1.4}
-.dom-head{display:grid;grid-template-columns:var(--side) 1fr;background:var(--col-blue);border-bottom:1px solid #000;font-variant:small-caps;font-size:.95em;line-height:1.4}
+.dom-head{display:grid;grid-template-columns:var(--side) 1fr;background:var(--age);border-bottom:1px solid #000;font-variant:small-caps;font-size:.95em;line-height:1.4}
 .dom-head span{padding:.08rem .5rem}
 .dom-head span:last-child{text-align:center;border-left:1px solid #000}
 .dim{display:grid;grid-template-columns:var(--side) 1fr;grid-template-areas:"top top" "side comments";border-bottom:1px solid #000}
@@ -130,6 +131,9 @@ table.frame{width:100%}
 .score{border:1px solid #8c8c8c;border-top-width:3px;border-left-width:3px;padding:.3rem .4rem .45rem;text-align:center;background:#fff}
 .score label{display:block;font-variant:small-caps;line-height:1.2;margin-bottom:.15rem}
 .score input{text-align:center;padding:.3rem .3rem}
+.score select{font:inherit;color:var(--ink);width:100%;background:var(--field);border:0;border-bottom:1px solid var(--field-line);border-radius:2px;padding:.3rem .3rem;line-height:1.35;text-align:center;text-align-last:center;cursor:pointer}
+.score select:focus-visible{outline:3px solid var(--blue-dark);outline-offset:1px;background:#fff}
+.score .range-label{margin-top:.45rem}
 .growth{grid-template-columns:1fr var(--side);grid-template-areas:"top top" "comments side"}
 .growth .comments{border-left:0;border-right:1px solid #000}
 .growth .dim-side{justify-content:flex-end}
@@ -204,6 +208,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   .salutation .f+.f .print-copy:empty{border-bottom:1px solid #000;min-width:7rem}
   .ifield .print-copy{display:inline-block;min-width:15rem}
   .score .print-copy{border-bottom:0;text-align:center}
+  .score .range-label{margin-top:.2rem}
   .comments .print-copy{padding:0 .1rem;min-height:0}
   .f.inline .print-copy{display:inline-block;min-width:8rem}
   .signoff .f .print-copy{display:inline-block;min-width:11rem}
@@ -236,7 +241,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   table.frame td{display:table-cell}
   .runhead{margin-bottom:.25rem}
   .runhead .ff{width:1.45in}.runhead .rr{width:.62in}
-  .runtitle{color:#5b9bd5;font-size:10pt}
+  .runtitle{color:var(--age-dark);font-size:10pt}
   .info{margin:.1rem 0 .35rem;gap:.15rem}
   .info-row{gap:.15rem 1rem}
   .info-row.r3{grid-template-columns:repeat(3,1fr)}.info-row.r4{grid-template-columns:repeat(4,1fr)}
@@ -351,7 +356,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
         
 <div class="info">
 <div class="info-row r3"><div class="f"><label for="d-program">Program</label><input class="fc" data-field id="d-program" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-educator">Educator’s Name</label><input class="fc" data-field id="d-educator" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-observer">Observer</label><input class="fc" data-field id="d-observer" type="text" autocomplete="off" spellcheck="false"></div></div>
-<div class="info-row r3"><div class="f"><label for="d-classroom">Classroom</label><input class="fc" data-field id="d-classroom" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-classid">Class ID</label><input class="fc" data-field id="d-classid" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-date">Date</label><input class="fc" data-field id="d-date" type="date" autocomplete="off" spellcheck="false"></div></div>
+<div class="info-row r3"><div class="f"><label for="d-classroom">Classroom Name</label><input class="fc" data-field id="d-classroom" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-classid">Classroom ID</label><input class="fc" data-field id="d-classid" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-date">Date</label><input class="fc" data-field id="d-date" type="date" autocomplete="off" spellcheck="false"></div></div>
 <div class="info-row r4"><div class="f"><label for="d-children">No. of children</label><input class="fc" data-field id="d-children" type="number" autocomplete="off" spellcheck="false" inputmode="numeric" min="0" step="1"></div><div class="f"><label for="d-adults">No. of adults</label><input class="fc" data-field id="d-adults" type="number" autocomplete="off" spellcheck="false" inputmode="numeric" min="0" step="1"></div><div class="f"><label for="d-start">Start time</label><input class="fc" data-field id="d-start" type="time" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-end">End time</label><input class="fc" data-field id="d-end" type="time" autocomplete="off" spellcheck="false"></div></div>
 <div class="checks" role="group" aria-labelledby="g-act"><span class="chk-label" id="g-act">Activity (check all applicable)</span><label class="check"><input class="fc-check" data-field id="act-napping" type="checkbox"><span>Napping</span></label><label class="check"><input class="fc-check" data-field id="act-feeding" type="checkbox"><span>Feeding</span></label><label class="check"><input class="fc-check" data-field id="act-play" type="checkbox"><span>Play</span></label><label class="check"><input class="fc-check" data-field id="act-diapering" type="checkbox"><span>Diapering</span></label><span class="other"><label class="check"><input class="fc-check" data-field id="act-other" type="checkbox"><span>Other</span></label><input class="fc" data-field id="act-other-text" type="text" autocomplete="off" spellcheck="false" aria-label="Other activity"></span></div>
 <div class="checks" role="group" aria-labelledby="g-set"><span class="chk-label" id="g-set">Physical Setting (check all applicable)</span><label class="check"><input class="fc-check" data-field id="set-classroom" type="checkbox"><span>Classroom</span></label><label class="check"><input class="fc-check" data-field id="set-outside" type="checkbox"><span>Outside</span></label><span class="other"><label class="check"><input class="fc-check" data-field id="set-other" type="checkbox"><span>Other</span></label><input class="fc" data-field id="set-other-text" type="text" autocomplete="off" spellcheck="false" aria-label="Other physical setting"></span></div>
@@ -361,8 +366,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-relational-climate">Relational Climate</b> Reflects the connections, emotions, and respect conveyed by educators’ as well as the infants’ responses to these interactions.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Relational Climate"><li>Relational Behaviors</li><li>Emotion Expression</li><li>Respect for Infants’ State</li><li>Lack of Adult Negativity</li></ul>
-    <div class="score"><label id="ls-relational-climate" for="s-relational-climate">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-relational-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-relational-climate h-relational-climate" placeholder="Type here"></div>
+    <div class="score"><label id="ls-relational-climate" for="s-relational-climate">Average Score</label>
+      <input class="fc" data-field id="s-relational-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-relational-climate h-relational-climate" placeholder="Type here">
+      <label class="range-label" id="lr-s-relational-climate" for="r-s-relational-climate">Range</label>
+      <select class="fc" data-field id="r-s-relational-climate" aria-labelledby="lr-s-relational-climate h-relational-climate"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-relational-climate" for="c-relational-climate">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-relational-climate" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-relational-climate h-relational-climate"></textarea></div>
@@ -371,8 +378,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-teacher-sensitivity">Teacher Sensitivity</b> Encompasses the educator’s awareness of and responsiveness to infants’ verbal and nonverbal cues, to including availability provide comfort, skill in resolving distress, and timeliness and contingency of responses.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Teacher Sensitivity"><li>Awareness and Cue Detection</li><li>Responsiveness</li><li>Infant Comfort</li></ul>
-    <div class="score"><label id="ls-teacher-sensitivity" for="s-teacher-sensitivity">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-teacher-sensitivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-teacher-sensitivity h-teacher-sensitivity" placeholder="Type here"></div>
+    <div class="score"><label id="ls-teacher-sensitivity" for="s-teacher-sensitivity">Average Score</label>
+      <input class="fc" data-field id="s-teacher-sensitivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-teacher-sensitivity h-teacher-sensitivity" placeholder="Type here">
+      <label class="range-label" id="lr-s-teacher-sensitivity" for="r-s-teacher-sensitivity">Range</label>
+      <select class="fc" data-field id="r-s-teacher-sensitivity" aria-labelledby="lr-s-teacher-sensitivity h-teacher-sensitivity"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-teacher-sensitivity" for="c-teacher-sensitivity">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-teacher-sensitivity" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-teacher-sensitivity h-teacher-sensitivity"></textarea></div>
@@ -381,8 +390,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-facilitated-exploration">Facilitated Exploration</b> Considers educators’ facilitation of experiences and interactions in routine care and playtime to support infants’ engagement and development.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Facilitated Exploration"><li>Involvement</li><li>Infant Focused</li><li>Expansion of Infants’ Experience</li></ul>
-    <div class="score"><label id="ls-facilitated-exploration" for="s-facilitated-exploration">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-facilitated-exploration" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-facilitated-exploration h-facilitated-exploration" placeholder="Type here"></div>
+    <div class="score"><label id="ls-facilitated-exploration" for="s-facilitated-exploration">Average Score</label>
+      <input class="fc" data-field id="s-facilitated-exploration" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-facilitated-exploration h-facilitated-exploration" placeholder="Type here">
+      <label class="range-label" id="lr-s-facilitated-exploration" for="r-s-facilitated-exploration">Range</label>
+      <select class="fc" data-field id="r-s-facilitated-exploration" aria-labelledby="lr-s-facilitated-exploration h-facilitated-exploration"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-facilitated-exploration" for="c-facilitated-exploration">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-facilitated-exploration" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-facilitated-exploration h-facilitated-exploration"></textarea></div>
@@ -391,8 +402,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-early-language-support">Early Language Support</b> Captures the amount and effectiveness of educators’ use of language-stimulation and language-facilitation techniques to encourage infants’ early language development.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Early Language Support"><li>Teacher Talk</li><li>Communication Support</li><li>Communication Extension</li></ul>
-    <div class="score"><label id="ls-early-language-support" for="s-early-language-support">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-early-language-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-early-language-support h-early-language-support" placeholder="Type here"></div>
+    <div class="score"><label id="ls-early-language-support" for="s-early-language-support">Average Score</label>
+      <input class="fc" data-field id="s-early-language-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-early-language-support h-early-language-support" placeholder="Type here">
+      <label class="range-label" id="lr-s-early-language-support" for="r-s-early-language-support">Range</label>
+      <select class="fc" data-field id="r-s-early-language-support" aria-labelledby="lr-s-early-language-support h-early-language-support"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-early-language-support" for="c-early-language-support">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-early-language-support" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-early-language-support h-early-language-support"></textarea></div>
@@ -402,7 +415,9 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <div class="comments"><label class="sr-only" id="lg-responsive-caregiving" for="c-g-responsive-caregiving">Comments</label>
     <textarea class="fc grow" data-field id="c-g-responsive-caregiving" rows="4" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lg-responsive-caregiving hg-responsive-caregiving"></textarea></div>
   <div class="dim-side"><div class="score domain-avg"><label id="la-responsive-caregiving" for="a-responsive-caregiving">Domain Average</label>
-      <input class="fc" data-field id="a-responsive-caregiving" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-responsive-caregiving hd-responsive-caregiving" placeholder="Type here"></div></div>
+      <input class="fc" data-field id="a-responsive-caregiving" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-responsive-caregiving hd-responsive-caregiving" placeholder="Type here">
+      <label class="range-label" id="lr-a-responsive-caregiving" for="r-a-responsive-caregiving">Range</label>
+      <select class="fc" data-field id="r-a-responsive-caregiving" aria-labelledby="lr-a-responsive-caregiving hd-responsive-caregiving"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div></div>
 </section></section>
 
         <section class="sessions" id="sessions" aria-labelledby="sessions-h">

@@ -14,6 +14,7 @@
   --field:#edf4fa; --field-line:#7fa3bb; --danger:#a12622;
   --green:#99cb3b; --orange:#f99939;
   --dom-gray:#d0cece; --col-blue:#6ebcff; --alt:#f2f2f2; --run-blue:#2f6fa8;
+  --age:#6ebcff; --age-dark:#0072d4;
   --side:26%;
   --font:Calibri,Carlito,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
@@ -106,7 +107,7 @@ table.frame{width:100%}
 .runhead{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:1rem;margin-bottom:.6rem}
 .runhead .ff{width:min(11rem,100%);height:auto}
 .runhead .rr{width:4.2rem;height:auto;justify-self:end}
-.runtitle{margin:0;text-align:center;font-weight:700;color:var(--run-blue);font-size:1rem}
+.runtitle{margin:0;text-align:center;font-weight:700;color:var(--age-dark);font-size:1rem}
 .info{margin:.3rem 0 .8rem;display:grid;gap:.45rem}
 .info-row{display:grid;gap:.45rem 1.5rem}
 .info-row.r3{grid-template-columns:repeat(3,1fr)}
@@ -115,7 +116,7 @@ table.frame{width:100%}
 .chk-label{margin-right:.4rem}
 .domain-sec{border:1px solid #000;margin:0 0 .9rem;background:#fff}
 .dom-title{margin:0;text-align:center;background:var(--dom-gray);font-size:1.05em;font-weight:400;font-variant:small-caps;letter-spacing:.03em;padding:.12rem .5rem;border-bottom:1px solid #000;line-height:1.4}
-.dom-head{display:grid;grid-template-columns:var(--side) 1fr;background:var(--col-blue);border-bottom:1px solid #000;font-variant:small-caps;font-size:.95em;line-height:1.4}
+.dom-head{display:grid;grid-template-columns:var(--side) 1fr;background:var(--age);border-bottom:1px solid #000;font-variant:small-caps;font-size:.95em;line-height:1.4}
 .dom-head span{padding:.08rem .5rem}
 .dom-head span:last-child{text-align:center;border-left:1px solid #000}
 .dim{display:grid;grid-template-columns:var(--side) 1fr;grid-template-areas:"top top" "side comments";border-bottom:1px solid #000}
@@ -130,6 +131,9 @@ table.frame{width:100%}
 .score{border:1px solid #8c8c8c;border-top-width:3px;border-left-width:3px;padding:.3rem .4rem .45rem;text-align:center;background:#fff}
 .score label{display:block;font-variant:small-caps;line-height:1.2;margin-bottom:.15rem}
 .score input{text-align:center;padding:.3rem .3rem}
+.score select{font:inherit;color:var(--ink);width:100%;background:var(--field);border:0;border-bottom:1px solid var(--field-line);border-radius:2px;padding:.3rem .3rem;line-height:1.35;text-align:center;text-align-last:center;cursor:pointer}
+.score select:focus-visible{outline:3px solid var(--blue-dark);outline-offset:1px;background:#fff}
+.score .range-label{margin-top:.45rem}
 .growth{grid-template-columns:1fr var(--side);grid-template-areas:"top top" "comments side"}
 .growth .comments{border-left:0;border-right:1px solid #000}
 .growth .dim-side{justify-content:flex-end}
@@ -204,6 +208,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   .salutation .f+.f .print-copy:empty{border-bottom:1px solid #000;min-width:7rem}
   .ifield .print-copy{display:inline-block;min-width:15rem}
   .score .print-copy{border-bottom:0;text-align:center}
+  .score .range-label{margin-top:.2rem}
   .comments .print-copy{padding:0 .1rem;min-height:0}
   .f.inline .print-copy{display:inline-block;min-width:8rem}
   .signoff .f .print-copy{display:inline-block;min-width:11rem}
@@ -236,7 +241,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   table.frame td{display:table-cell}
   .runhead{margin-bottom:.25rem}
   .runhead .ff{width:1.45in}.runhead .rr{width:.62in}
-  .runtitle{color:#5b9bd5;font-size:10pt}
+  .runtitle{color:var(--age-dark);font-size:10pt}
   .info{margin:.1rem 0 .35rem;gap:.15rem}
   .info-row{gap:.15rem 1rem}
   .info-row.r3{grid-template-columns:repeat(3,1fr)}.info-row.r4{grid-template-columns:repeat(4,1fr)}
@@ -348,7 +353,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
         
 <div class="info">
 <div class="info-row r3"><div class="f"><label for="d-program">Program</label><input class="fc" data-field id="d-program" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-educator">Educator’s Name</label><input class="fc" data-field id="d-educator" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-observer">Observer</label><input class="fc" data-field id="d-observer" type="text" autocomplete="off" spellcheck="false"></div></div>
-<div class="info-row r3"><div class="f"><label for="d-classroom">Classroom</label><input class="fc" data-field id="d-classroom" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-classid">Class ID</label><input class="fc" data-field id="d-classid" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-date">Date</label><input class="fc" data-field id="d-date" type="date" autocomplete="off" spellcheck="false"></div></div>
+<div class="info-row r3"><div class="f"><label for="d-classroom">Classroom Name</label><input class="fc" data-field id="d-classroom" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-classid">Classroom ID</label><input class="fc" data-field id="d-classid" type="text" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-date">Date</label><input class="fc" data-field id="d-date" type="date" autocomplete="off" spellcheck="false"></div></div>
 <div class="info-row r4"><div class="f"><label for="d-children">No. of children</label><input class="fc" data-field id="d-children" type="number" autocomplete="off" spellcheck="false" inputmode="numeric" min="0" step="1"></div><div class="f"><label for="d-adults">No. of adults</label><input class="fc" data-field id="d-adults" type="number" autocomplete="off" spellcheck="false" inputmode="numeric" min="0" step="1"></div><div class="f"><label for="d-start">Start time</label><input class="fc" data-field id="d-start" type="time" autocomplete="off" spellcheck="false"></div><div class="f"><label for="d-end">End time</label><input class="fc" data-field id="d-end" type="time" autocomplete="off" spellcheck="false"></div></div>
 <div class="checks" role="group" aria-labelledby="g-act"><span class="chk-label" id="g-act">Activity (Check all applicable)</span><label class="check"><input class="fc-check" data-field id="act-routine" type="checkbox"><span>Routine</span></label><label class="check"><input class="fc-check" data-field id="act-meal-snacks" type="checkbox"><span>Meal/Snacks</span></label><label class="check"><input class="fc-check" data-field id="act-free-choice-interest-areas" type="checkbox"><span>Free Choice/Interest Areas</span></label><label class="check"><input class="fc-check" data-field id="act-transition" type="checkbox"><span>Transition</span></label><label class="check"><input class="fc-check" data-field id="act-group-time" type="checkbox"><span>Group Time</span></label></div>
 <div class="checks" role="group" aria-labelledby="g-grp"><span class="chk-label" id="g-grp">Grouping (Check all applicable)</span><label class="check"><input class="fc-check" data-field id="grp-whole-group" type="checkbox"><span>Whole Group</span></label><label class="check"><input class="fc-check" data-field id="grp-small-group" type="checkbox"><span>Small Group</span></label><label class="check"><input class="fc-check" data-field id="grp-individual-time" type="checkbox"><span>Individual Time</span></label></div>
@@ -358,8 +363,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-positive-climate">Positive Climate</b> Reflects the emotional connection between the educator and children and among children and the warmth, respect, and enjoyment communicated by verbal &amp; nonverbal interactions.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Positive Climate"><li>Relationships</li><li>Positive Affect</li><li>Positive Communication</li><li>Respect</li></ul>
-    <div class="score"><label id="ls-positive-climate" for="s-positive-climate">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-positive-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-positive-climate h-positive-climate" placeholder="Type here"></div>
+    <div class="score"><label id="ls-positive-climate" for="s-positive-climate">Average Score</label>
+      <input class="fc" data-field id="s-positive-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-positive-climate h-positive-climate" placeholder="Type here">
+      <label class="range-label" id="lr-s-positive-climate" for="r-s-positive-climate">Range</label>
+      <select class="fc" data-field id="r-s-positive-climate" aria-labelledby="lr-s-positive-climate h-positive-climate"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-positive-climate" for="c-positive-climate">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-positive-climate" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-positive-climate h-positive-climate"></textarea></div>
@@ -368,8 +375,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-negative-climate">Negative Climate</b> Reflects the overall level of expressed negativity in the classroom; the frequency, quality, and intensity of educator and peer negativity are key to this scale.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Negative Climate"><li>Negative Affect</li><li>Punitive Control</li><li>Sarcasm/Disrespect</li><li>Severe Negativity</li></ul>
-    <div class="score"><label id="ls-negative-climate" for="s-negative-climate">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-negative-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-negative-climate h-negative-climate" placeholder="Type here"></div>
+    <div class="score"><label id="ls-negative-climate" for="s-negative-climate">Average Score</label>
+      <input class="fc" data-field id="s-negative-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-negative-climate h-negative-climate" placeholder="Type here">
+      <label class="range-label" id="lr-s-negative-climate" for="r-s-negative-climate">Range</label>
+      <select class="fc" data-field id="r-s-negative-climate" aria-labelledby="lr-s-negative-climate h-negative-climate"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-negative-climate" for="c-negative-climate">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-negative-climate" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-negative-climate h-negative-climate"></textarea></div>
@@ -378,8 +387,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-teacher-sensitivity">Teacher Sensitivity</b> Encompasses the educator’s awareness of and responsivity to children’s academic and emotional needs; high levels of sensitivity facilitate children’s ability to actively explore and learn because the educator consistently provides comfort, reassurance, and encouragement.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Teacher Sensitivity"><li>Awareness</li><li>Responsiveness</li><li>Addresses Problems</li><li>Child Comfort</li></ul>
-    <div class="score"><label id="ls-teacher-sensitivity" for="s-teacher-sensitivity">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-teacher-sensitivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-teacher-sensitivity h-teacher-sensitivity" placeholder="Type here"></div>
+    <div class="score"><label id="ls-teacher-sensitivity" for="s-teacher-sensitivity">Average Score</label>
+      <input class="fc" data-field id="s-teacher-sensitivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-teacher-sensitivity h-teacher-sensitivity" placeholder="Type here">
+      <label class="range-label" id="lr-s-teacher-sensitivity" for="r-s-teacher-sensitivity">Range</label>
+      <select class="fc" data-field id="r-s-teacher-sensitivity" aria-labelledby="lr-s-teacher-sensitivity h-teacher-sensitivity"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-teacher-sensitivity" for="c-teacher-sensitivity">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-teacher-sensitivity" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-teacher-sensitivity h-teacher-sensitivity"></textarea></div>
@@ -388,8 +399,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-regard-for-child-perspectives">Regard for Child Perspectives</b> Captures the degree to which the educator’s interactions with children and classroom activities place an emphasis on children’s interests, motivations, and points of view and encourage child responsibility and autonomy.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Regard for Child Perspectives"><li>Flexibility and Child Focus</li><li>Support for Autonomy and Leadership</li><li>Child Expression</li><li>Restriction of Movement</li></ul>
-    <div class="score"><label id="ls-regard-for-child-perspectives" for="s-regard-for-child-perspectives">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-regard-for-child-perspectives" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-regard-for-child-perspectives h-regard-for-child-perspectives" placeholder="Type here"></div>
+    <div class="score"><label id="ls-regard-for-child-perspectives" for="s-regard-for-child-perspectives">Average Score</label>
+      <input class="fc" data-field id="s-regard-for-child-perspectives" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-regard-for-child-perspectives h-regard-for-child-perspectives" placeholder="Type here">
+      <label class="range-label" id="lr-s-regard-for-child-perspectives" for="r-s-regard-for-child-perspectives">Range</label>
+      <select class="fc" data-field id="r-s-regard-for-child-perspectives" aria-labelledby="lr-s-regard-for-child-perspectives h-regard-for-child-perspectives"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-regard-for-child-perspectives" for="c-regard-for-child-perspectives">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-regard-for-child-perspectives" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-regard-for-child-perspectives h-regard-for-child-perspectives"></textarea></div>
@@ -399,14 +412,18 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <div class="comments"><label class="sr-only" id="lg-emotional-support" for="c-g-emotional-support">Comments</label>
     <textarea class="fc grow" data-field id="c-g-emotional-support" rows="4" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lg-emotional-support hg-emotional-support"></textarea></div>
   <div class="dim-side"><div class="score domain-avg"><label id="la-emotional-support" for="a-emotional-support">Domain Average</label>
-      <input class="fc" data-field id="a-emotional-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-emotional-support hd-emotional-support" placeholder="Type here"></div></div>
+      <input class="fc" data-field id="a-emotional-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-emotional-support hd-emotional-support" placeholder="Type here">
+      <label class="range-label" id="lr-a-emotional-support" for="r-a-emotional-support">Range</label>
+      <select class="fc" data-field id="r-a-emotional-support" aria-labelledby="lr-a-emotional-support hd-emotional-support"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div></div>
 </section></section><section class="domain-sec" id="classroom-organization" aria-labelledby="hd-classroom-organization"><h3 class="dom-title" id="hd-classroom-organization">Classroom Organization</h3><div class="dom-head" aria-hidden="true"><span>Dimension and Indicators</span><span>Comments from Observations</span></div>
 <section class="dim" id="dim-behavior-management" aria-labelledby="h-behavior-management">
   <p class="dim-top"><b class="dim-name" id="h-behavior-management">Behavior Management</b> Encompasses the educator’s ability to provide clear behavioral expectations and use effective methods to prevent and redirect misbehavior.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Behavior Management"><li>Clear Behavior Expectations</li><li>Proactive</li><li>Redirection of Misbehavior</li><li>Child Behavior</li></ul>
-    <div class="score"><label id="ls-behavior-management" for="s-behavior-management">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-behavior-management" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-behavior-management h-behavior-management" placeholder="Type here"></div>
+    <div class="score"><label id="ls-behavior-management" for="s-behavior-management">Average Score</label>
+      <input class="fc" data-field id="s-behavior-management" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-behavior-management h-behavior-management" placeholder="Type here">
+      <label class="range-label" id="lr-s-behavior-management" for="r-s-behavior-management">Range</label>
+      <select class="fc" data-field id="r-s-behavior-management" aria-labelledby="lr-s-behavior-management h-behavior-management"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-behavior-management" for="c-behavior-management">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-behavior-management" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-behavior-management h-behavior-management"></textarea></div>
@@ -415,8 +432,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-productivity">Productivity</b> Considers how well the educator manages instructional time and routines and provides activities for children so that they have the opportunity to be involved in learning activities.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Productivity"><li>Maximizing Learning Time</li><li>Routines</li><li>Transitions</li><li>Preparation</li></ul>
-    <div class="score"><label id="ls-productivity" for="s-productivity">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-productivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-productivity h-productivity" placeholder="Type here"></div>
+    <div class="score"><label id="ls-productivity" for="s-productivity">Average Score</label>
+      <input class="fc" data-field id="s-productivity" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-productivity h-productivity" placeholder="Type here">
+      <label class="range-label" id="lr-s-productivity" for="r-s-productivity">Range</label>
+      <select class="fc" data-field id="r-s-productivity" aria-labelledby="lr-s-productivity h-productivity"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-productivity" for="c-productivity">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-productivity" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-productivity h-productivity"></textarea></div>
@@ -425,8 +444,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-instructional-learning-formats">Instructional Learning Formats</b> Focuses on the ways in which the educator maximizes children’s interest, engagement, and ability to learn from lessons and activities.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Instructional Learning Formats"><li>Effective Facilitation</li><li>Variety of Modalities and Materials</li><li>Child Interest</li><li>Clarity of Learning Objectives</li></ul>
-    <div class="score"><label id="ls-instructional-learning-formats" for="s-instructional-learning-formats">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-instructional-learning-formats" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-instructional-learning-formats h-instructional-learning-formats" placeholder="Type here"></div>
+    <div class="score"><label id="ls-instructional-learning-formats" for="s-instructional-learning-formats">Average Score</label>
+      <input class="fc" data-field id="s-instructional-learning-formats" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-instructional-learning-formats h-instructional-learning-formats" placeholder="Type here">
+      <label class="range-label" id="lr-s-instructional-learning-formats" for="r-s-instructional-learning-formats">Range</label>
+      <select class="fc" data-field id="r-s-instructional-learning-formats" aria-labelledby="lr-s-instructional-learning-formats h-instructional-learning-formats"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-instructional-learning-formats" for="c-instructional-learning-formats">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-instructional-learning-formats" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-instructional-learning-formats h-instructional-learning-formats"></textarea></div>
@@ -436,14 +457,18 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <div class="comments"><label class="sr-only" id="lg-classroom-organization" for="c-g-classroom-organization">Comments</label>
     <textarea class="fc grow" data-field id="c-g-classroom-organization" rows="4" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lg-classroom-organization hg-classroom-organization"></textarea></div>
   <div class="dim-side"><div class="score domain-avg"><label id="la-classroom-organization" for="a-classroom-organization">Domain Average</label>
-      <input class="fc" data-field id="a-classroom-organization" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-classroom-organization hd-classroom-organization" placeholder="Type here"></div></div>
+      <input class="fc" data-field id="a-classroom-organization" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-classroom-organization hd-classroom-organization" placeholder="Type here">
+      <label class="range-label" id="lr-a-classroom-organization" for="r-a-classroom-organization">Range</label>
+      <select class="fc" data-field id="r-a-classroom-organization" aria-labelledby="lr-a-classroom-organization hd-classroom-organization"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div></div>
 </section></section><section class="domain-sec" id="instructional-support" aria-labelledby="hd-instructional-support"><h3 class="dom-title" id="hd-instructional-support">Instructional Support</h3><div class="dom-head" aria-hidden="true"><span>Dimension and Indicators</span><span>Comments from Observations</span></div>
 <section class="dim" id="dim-concept-development" aria-labelledby="h-concept-development">
   <p class="dim-top"><b class="dim-name" id="h-concept-development">Concept Development</b> Measures the educator’s use of instructional discussions and activities to promote children’s higher-order thinking skills and cognition and the educator’s focus on understanding rather than on rote instruction.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Concept Development"><li>Analysis and Reasoning</li><li>Creating</li><li>Integration</li><li>Connections to the Real World</li></ul>
-    <div class="score"><label id="ls-concept-development" for="s-concept-development">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-concept-development" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-concept-development h-concept-development" placeholder="Type here"></div>
+    <div class="score"><label id="ls-concept-development" for="s-concept-development">Average Score</label>
+      <input class="fc" data-field id="s-concept-development" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-concept-development h-concept-development" placeholder="Type here">
+      <label class="range-label" id="lr-s-concept-development" for="r-s-concept-development">Range</label>
+      <select class="fc" data-field id="r-s-concept-development" aria-labelledby="lr-s-concept-development h-concept-development"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-concept-development" for="c-concept-development">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-concept-development" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-concept-development h-concept-development"></textarea></div>
@@ -452,8 +477,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-quality-of-feedback">Quality of Feedback</b> Assesses the degree to which the educator provides feedback that expands learning and understanding and encourages continued participation.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Quality of Feedback"><li>Scaffolding</li><li>Feedback Loops</li><li>Prompting Thought Process</li><li>Providing Information</li><li>Encouragement and Affirmation</li></ul>
-    <div class="score"><label id="ls-quality-of-feedback" for="s-quality-of-feedback">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-quality-of-feedback" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-quality-of-feedback h-quality-of-feedback" placeholder="Type here"></div>
+    <div class="score"><label id="ls-quality-of-feedback" for="s-quality-of-feedback">Average Score</label>
+      <input class="fc" data-field id="s-quality-of-feedback" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-quality-of-feedback h-quality-of-feedback" placeholder="Type here">
+      <label class="range-label" id="lr-s-quality-of-feedback" for="r-s-quality-of-feedback">Range</label>
+      <select class="fc" data-field id="r-s-quality-of-feedback" aria-labelledby="lr-s-quality-of-feedback h-quality-of-feedback"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-quality-of-feedback" for="c-quality-of-feedback">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-quality-of-feedback" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-quality-of-feedback h-quality-of-feedback"></textarea></div>
@@ -462,8 +489,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-language-modeling">Language Modeling</b> Captures the quality and amount of the educator’s use of language-stimulation and language-facilitation techniques.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Language Modeling"><li>Frequent Conversation</li><li>Open-ended Questions</li><li>Repetition and Extension</li><li>Self- and Parallel Talk</li><li>Advanced Language</li></ul>
-    <div class="score"><label id="ls-language-modeling" for="s-language-modeling">Average Score &amp; Range</label>
-      <input class="fc" data-field id="s-language-modeling" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-language-modeling h-language-modeling" placeholder="Type here"></div>
+    <div class="score"><label id="ls-language-modeling" for="s-language-modeling">Average Score</label>
+      <input class="fc" data-field id="s-language-modeling" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-language-modeling h-language-modeling" placeholder="Type here">
+      <label class="range-label" id="lr-s-language-modeling" for="r-s-language-modeling">Range</label>
+      <select class="fc" data-field id="r-s-language-modeling" aria-labelledby="lr-s-language-modeling h-language-modeling"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
   </div>
   <div class="comments"><label class="sr-only" id="lc-language-modeling" for="c-language-modeling">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-language-modeling" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-language-modeling h-language-modeling"></textarea></div>
@@ -473,7 +502,9 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <div class="comments"><label class="sr-only" id="lg-instructional-support" for="c-g-instructional-support">Comments</label>
     <textarea class="fc grow" data-field id="c-g-instructional-support" rows="4" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lg-instructional-support hg-instructional-support"></textarea></div>
   <div class="dim-side"><div class="score domain-avg"><label id="la-instructional-support" for="a-instructional-support">Domain Average</label>
-      <input class="fc" data-field id="a-instructional-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-instructional-support hd-instructional-support" placeholder="Type here"></div></div>
+      <input class="fc" data-field id="a-instructional-support" type="text" autocomplete="off" spellcheck="false" aria-labelledby="la-instructional-support hd-instructional-support" placeholder="Type here">
+      <label class="range-label" id="lr-a-instructional-support" for="r-a-instructional-support">Range</label>
+      <select class="fc" data-field id="r-a-instructional-support" aria-labelledby="lr-a-instructional-support hd-instructional-support"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div></div>
 </section></section>
 
         <section class="sessions" id="sessions" aria-labelledby="sessions-h">
