@@ -157,6 +157,7 @@ table.frame{width:100%}
 .sig-note{font-size:.9rem;color:var(--muted);margin:.5rem 0 0;max-width:70ch}
 .thanks{text-align:center;margin:1.5rem auto 0;max-width:60ch}
 .thanks .qr{margin:.6rem auto 0}
+.thanks .qr img{margin:0 auto}
 .finish{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-top:1.75rem;padding:1rem 1.1rem;background:var(--blue-tint);border-left:6px solid var(--blue)}
 .finish p{margin:0;font-weight:600}
 .runfoot{margin-top:1.5rem;padding-top:.7rem;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
@@ -255,6 +256,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   .dim{grid-template-columns:var(--side) 1fr;grid-template-areas:"top top" "side comments"}
   .growth{grid-template-columns:1fr var(--side);grid-template-areas:"top top" "comments side"}
   .dom-head{display:grid}
+  /* each row draws its own frame: lines stay visible at any PDF zoom, and no empty box trails to the page end */
+  .domain-sec{border:0}
+  .dom-title,.dom-head,.dim,.dim:last-child{border:1.25px solid #000}
+  .dom-head,.dim{margin-top:-1.25px}
   .comments{border-left:1px solid #000;border-right:0;border-top:0}
   .growth .comments{border-left:0;border-right:1px solid #000}
   .dim-top{font-size:10pt}
