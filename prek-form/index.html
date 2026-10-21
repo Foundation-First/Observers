@@ -134,6 +134,7 @@ table.frame{width:100%}
 .score select{font:inherit;color:var(--ink);width:100%;background:var(--field);border:0;border-bottom:1px solid var(--field-line);border-radius:2px;padding:.3rem .3rem;line-height:1.35;text-align:center;text-align-last:center;cursor:pointer}
 .score select:focus-visible{outline:3px solid var(--blue-dark);outline-offset:1px;background:#fff}
 .score .range-label{margin-top:.45rem}
+.score-note{margin:0;font-size:.82rem;font-style:italic;line-height:1.3;color:var(--muted)}
 .growth{grid-template-columns:1fr var(--side);grid-template-areas:"top top" "comments side"}
 .growth .comments{border-left:0;border-right:1px solid #000}
 .growth .dim-side{justify-content:flex-end}
@@ -210,6 +211,7 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   .ifield .print-copy{display:inline-block;min-width:15rem}
   .score .print-copy{border-bottom:0;text-align:center}
   .score .range-label{margin-top:.2rem}
+  .score-note{font-size:8pt;color:#000}
   .comments .print-copy{padding:0 .1rem;min-height:0}
   .f.inline .print-copy{display:inline-block;min-width:8rem}
   .signoff .f .print-copy{display:inline-block;min-width:11rem}
@@ -385,10 +387,11 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   <p class="dim-top"><b class="dim-name" id="h-negative-climate">Negative Climate</b> Reflects the overall level of expressed negativity in the classroom; the frequency, quality, and intensity of educator and peer negativity are key to this scale.</p>
   <div class="dim-side">
     <ul class="indicators" aria-label="Indicators for Negative Climate"><li>Negative Affect</li><li>Punitive Control</li><li>Sarcasm/Disrespect</li><li>Severe Negativity</li></ul>
-    <div class="score"><label id="ls-negative-climate" for="s-negative-climate">Average Score</label>
-      <input class="fc" data-field id="s-negative-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-negative-climate h-negative-climate" placeholder="Type here">
+    <div class="score"><label id="ls-negative-climate" for="s-negative-climate">Average Score*</label>
+      <input class="fc" data-field id="s-negative-climate" type="text" autocomplete="off" spellcheck="false" aria-labelledby="ls-negative-climate h-negative-climate" aria-describedby="n-negative-climate" placeholder="Type here">
       <label class="range-label" id="lr-s-negative-climate" for="r-s-negative-climate">Range</label>
       <select class="fc" data-field id="r-s-negative-climate" aria-labelledby="lr-s-negative-climate h-negative-climate"><option value="">Select</option><option>Low</option><option>Mid</option><option>High</option></select></div>
+    <p class="score-note" id="n-negative-climate">*Negative Climate is scaled in the opposite direction of the other dimensions: the higher the score, the greater the expressed negativity.</p>
   </div>
   <div class="comments"><label class="sr-only" id="lc-negative-climate" for="c-negative-climate">Comments from observations</label>
     <textarea class="fc grow" data-field id="c-negative-climate" rows="6" spellcheck="true" lang="en-US" autocapitalize="sentences" autocomplete="off" placeholder="Click here to type." aria-labelledby="lc-negative-climate h-negative-climate"></textarea></div>
