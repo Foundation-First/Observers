@@ -626,12 +626,12 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   }
   function queueSave(){clearTimeout(timer);timer=setTimeout(save,400);}
   /* typing a score fills its Range dropdown: under 3 Low, under 6 Mid, 6+ High (can still be changed by hand) */
-  /* Negative Climate runs the other way: a score above 3 turns its note red on screen as a reminder (the PDF stays black) */
+  /* Negative Climate runs the other way: a score of 3 or higher turns its note red on screen as a reminder (the PDF stays black) */
   var ncScore=document.getElementById('s-negative-climate'),ncNote=document.getElementById('n-negative-climate');
   function checkNC(){
     if(!ncScore||!ncNote)return;
     var v=ncScore.value.trim();
-    ncNote.classList.toggle('flag',/^\d*\.?\d+$/.test(v)&&parseFloat(v)>3);
+    ncNote.classList.toggle('flag',/^\d*\.?\d+$/.test(v)&&parseFloat(v)>=3);
   }
   function autoRange(el){
     var r=document.getElementById('r-'+el.id);
