@@ -7,6 +7,10 @@
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light">
 <title>VQB5 Local CLASS Observation Report – Infant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Carlito has the same letter widths as Calibri, so computers without Calibri lay out page 1 the same way -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap">
 <style>
 :root{
   --ink:#1c2b36; --muted:#4f6070; --line:#b8c7d3; --wash:#e8eef3; --paper:#fff;
@@ -237,8 +241,9 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
   .role{width:2.6in}
   .signoff-wrap{flex:none}
   .signoff{flex-wrap:nowrap}
-  .page1-foot{padding-top:.04in}
-  .page1-foot .banner{flex:0 0 7.5in}
+  .page1-foot{display:block;padding-top:.04in;break-inside:avoid;page-break-inside:avoid}
+  .page1-foot .banner{max-width:7.5in;margin:0 auto;break-inside:avoid;page-break-inside:avoid}
+  .page1-foot .banner img{break-inside:avoid}
 
   /* pages 2+: repeat the logo header on every page */
   .observation{margin:0;padding:0;border:0}
@@ -658,7 +663,10 @@ dialog .row{display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap}
     document.title=pdfTitle();
   });
   window.addEventListener('afterprint',function(){document.title=baseTitle;});
-  [].slice.call(document.querySelectorAll('#print-btn,#print-btn-2')).forEach(function(b){b.addEventListener('click',function(){window.print();});});
+  [].slice.call(document.querySelectorAll('#print-btn,#print-btn-2')).forEach(function(b){b.addEventListener('click',function(){
+    /* wait for the Carlito web font so the PDF lays out the same on every computer */
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){window.print();});else window.print();
+  });});
 })();
 
 </script>
